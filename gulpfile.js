@@ -21,7 +21,7 @@ gulp.task("build", ["webpack:build"]);
 gulp.task("webpack:build", function(callback) {
 	// modify some webpack config options
 	var myConfig = Object.create(webpackConfig);
-	myConfig.plugins = myConfig.plugins.concat(
+	myConfig.plugins = (myConfig.plugins || []).concat(
 		new webpack.DefinePlugin({
 			"process.env": {
 				// This has effect on the react lib size
